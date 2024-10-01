@@ -1,0 +1,123 @@
+/* Container for the entire list of estates */
+.estates-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .estates-header {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  /* Grid layout for the estate cards */
+  .estates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Individual estate card styling */
+  .estate-card {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .estate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .estate-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #007bff;
+  }
+  
+  .estate-card p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  /* Media query for mobile devices */
+  @media (max-width: 768px) {
+    .estates-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  /* Estates container */
+.estates-container {
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Header */
+  .estates-header {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Estates grid */
+  .estates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Estate card */
+  .estate-card {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .estate-card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Notification styles */
+  .notification {
+    background-color: #27ae60;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .notification p {
+    margin: 0;
+  }
+  
+  .notification button {
+    background: #c0392b;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1rem;
+  }
+  
+  .notification button:hover {
+    background: #e74c3c;
+  }
+  

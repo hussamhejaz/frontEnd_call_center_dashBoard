@@ -1,0 +1,24 @@
+
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+  transition: margin-left 0.3s;
+}
+
+.sidebar.closed + .main-content {
+  margin-left: 80px;
+}
+
+.main-content.full-width {
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 80px;
+  }
+
+  .sidebar.open + .main-content {
+    margin-left: 250px;
+  }
+}

@@ -1,0 +1,223 @@
+/* Profile container styles */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f7f8fa;
+    min-height: 100vh;
+  }
+  
+  /* Profile card styles */
+  .profile-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-header {
+    margin-bottom: 20px;
+  }
+  
+  .profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 5px solid #4CAF50;
+  }
+  
+  .profile-name {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .profile-email {
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  /* Profile details */
+  .profile-details {
+    text-align: left;
+  }
+  
+  .profile-details p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 8px;
+  }
+  
+  /* Colors for specific information */
+  .profile-details .phone {
+    color: #4CAF50; /* Blue for phone */
+  }
+  
+  .profile-details .gender {
+    color: #4CAF50;/* Pink for gender */
+  }
+  
+  .profile-details .account-type {
+    color: #4CAF50; /* Green for account type */
+  }
+  
+  .profile-details .city {
+    color: #4CAF50; /* Orange for city */
+  }
+  
+  .profile-details .date-of-birth {
+    color: #4CAF50; /* Purple for date of birth */
+  }
+  
+  .profile-details .date-of-registration {
+    color: #4CAF50; /* Dark blue for registration date */
+  }
+  
+  .profile-details .smoker {
+    color: #4CAF50;/* Red for smoker */
+  }
+  
+  .profile-details .allergies {
+    color: #4CAF50; /* Orange-red for allergies */
+  }
+  
+  .profile-details .session-status {
+    color: #4CAF50; /* Indigo for session status */
+  }
+  
+  /* Booking section */
+  .booking-section {
+    width: 100%;
+    max-width: 700px;
+    margin-top: 20px;
+  }
+  
+  .booking-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  /* Booking record (horizontal layout) */
+  .booking-record {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .booking-record:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Status badge styling */
+  .booking-status {
+    margin-right: 20px;
+  }
+  
+  .status-badge {
+    font-size: 1rem;
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: white;
+  }
+  
+  .status-badge.confirmed {
+    background-color: #4CAF50;
+  }
+  
+  .status-badge.rejected {
+    background-color: #ff4c4c;
+  }
+  
+  .status-badge.under-process {
+    background-color: #ff9800;
+  }
+  
+  /* Booking details */
+  .booking-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .booking-details h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .booking-info {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #555;
+  }
+  
+  .booking-info strong {
+    color: #333;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 600px) {
+    .profile-card,
+    .booking-section {
+      padding: 15px;
+    }
+  
+    .booking-record {
+      flex-direction: column;
+      text-align: left;
+    }
+  
+    .status-badge {
+      margin-bottom: 10px;
+    }
+  
+    .profile-avatar {
+      width: 120px;
+      height: 120px;
+    }
+  
+    .profile-name {
+      font-size: 1.5rem;
+    }
+  
+    .profile-details p {
+      font-size: 0.9rem;
+    }
+  }
+  .booking-search {
+    margin: 20px 0;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+  }
+  
+  .search-input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+  }
+  

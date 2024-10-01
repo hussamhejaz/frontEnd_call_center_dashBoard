@@ -1,0 +1,139 @@
+.providers-container-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.providers-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #f4f7fc;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.providers-title {
+  font-size: 36px;
+  color: #2c3e50;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.providers-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.providers-search {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 300px;
+}
+
+.providers-filter {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.providers-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.provider-card {
+  background-color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 300px;
+  text-align: center;
+  position: relative;
+}
+
+.provider-card-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.provider-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Specific styles for different industries */
+.hotel-card {
+  background-color: #3498db; /* Blue for hotel */
+  color: #ffffff; /* White text */
+}
+
+.coffee-card {
+  background-color: #e67e22; /* Orange for coffee */
+  color: #ffffff; /* White text */
+}
+
+.restaurant-card {
+  background-color: #27ae60; /* Green for restaurant */
+  color: #ffffff; /* White text */
+}
+
+.provider-logo-wrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.provider-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.provider-info {
+  text-align: center;
+}
+
+.provider-name {
+  font-size: 22px;
+  color: #ffffff; /* White text for name */
+  margin-bottom: 10px;
+}
+
+.provider-email,
+.provider-phone,
+.provider-type,
+.provider-industry {
+  font-size: 16px;
+  color: #ffffff; /* White text for other fields */
+  margin: 5px 0;
+}
+
+.provider-email strong,
+.provider-phone strong,
+.provider-type strong,
+.provider-industry strong {
+  color: #ffffff; /* Ensure strong text is also white */
+}

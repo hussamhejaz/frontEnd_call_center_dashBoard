@@ -1,0 +1,219 @@
+:root {
+    --primary-color: #3498db; /* Muted blue for highlights */
+    --secondary-color: #e74c3c; /* Error red */
+    --background-color: #f9f9f9; /* Light background */
+    --card-bg-color: #ffffff; /* White card background */
+    --text-color: #2c3e50; /* Dark text for professionalism */
+    --muted-text-color: #7f8c8d; /* Muted text for secondary info */
+    --border-color: #dfe6e9; /* Soft border color */
+    --highlight-color: #1abc9c; /* Soft green for status */
+    --shadow-color: rgba(0, 0, 0, 0.05); /* Soft shadow */
+    --transition-duration: 0.4s; /* Smooth transitions */
+  }
+  
+  body {
+    background-color: var(--background-color);
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .provider-profile-container {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: var(--card-bg-color);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px var(--shadow-color);
+    transition: box-shadow var(--transition-duration);
+  }
+  
+  .provider-profile-container:hover {
+    box-shadow: 0 12px 36px var(--shadow-color);
+  }
+  
+  .provider-profile-title {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+  }
+  
+  .provider-profile-section-title {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 30px;
+    padding-left: 5px;
+    border-left: 4px solid var(--primary-color);
+  }
+  
+  p {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 16px;
+    line-height: 1.8;
+  }
+  
+  p strong {
+    color: var(--primary-color);
+  }
+  
+  .provider-profile-provider-info,
+  .provider-profile-estate-info,
+  .provider-profile-bookings {
+    margin-bottom: 50px;
+  }
+  
+  .provider-profile-facility-image {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .provider-profile-facility-image img {
+    max-width: 320px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+  }
+  
+  /* Card-based design for booking details */
+  .booking-details {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg-color);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+  }
+  
+  .booking-details:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px var(--shadow-color);
+  }
+  
+  .booking-details h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 15px;
+  }
+  
+  .booking-details p {
+    font-size: 1rem;
+    color: var(--muted-text-color);
+    margin-bottom: 12px;
+  }
+  
+  .user-details {
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    margin-top: 25px;
+  }
+  
+  .user-details h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 10px;
+  }
+  
+  .user-details p {
+    font-size: 1rem;
+    color: var(--muted-text-color);
+  }
+  
+  ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  ul li {
+    margin-bottom: 8px;
+  }
+  
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Status-based background colors */
+  .status-under-process {
+    background-color: #fdf8e1; /* Soft yellow for "Under Process" */
+    border-left: 5px solid var(--highlight-color);
+  }
+  
+  .status-confirmed {
+    background-color: #e7f5e6; /* Soft green for "Confirmed" */
+    border-left: 5px solid var(--highlight-color);
+  }
+  
+  .status-rejected {
+    background-color: #fde4e3; /* Soft red for "Rejected" */
+    border-left: 5px solid var(--secondary-color);
+  }
+  
+  /* Modern button styling */
+  button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color var(--transition-duration), transform var(--transition-duration);
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .provider-profile-container {
+      padding: 20px;
+    }
+  
+    .provider-profile-title {
+      font-size: 2rem;
+    }
+  
+    .provider-profile-section-title {
+      font-size: 1.4rem;
+    }
+  
+    .provider-profile-facility-image img {
+      max-width: 250px;
+    }
+  
+    .booking-details {
+      padding: 20px;
+    }
+  }
+  .provider-profile-search {
+    margin-bottom: 20px;
+    text-align: right;
+  }
+  
+  .provider-profile-search-input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+  }
+  

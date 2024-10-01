@@ -1,0 +1,181 @@
+/* General container styles */
+.users-container-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.users-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #f4f7fc;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: auto;
+}
+
+.users-title {
+  font-size: 36px;
+  color: #2c3e50;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.users-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.users-search {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 300px;
+}
+
+.users-filter {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* Responsive row and column layout */
+.users-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%; /* Make sure the list stretches full width */
+}
+
+/* For larger screens - show in row */
+@media (min-width: 768px) {
+  .users-list {
+    flex-direction: row;
+  }
+
+  .user-card {
+    width: calc(33.33% - 40px); /* 3 cards per row on larger screens */
+    flex: 0 0 calc(33.33% - 40px);
+  }
+}
+
+/* For smaller screens - switch to column */
+@media (max-width: 767px) {
+  .users-list {
+    flex-direction: column;
+  }
+
+  .user-card {
+    width: 100%; /* Full width for small screens */
+    flex: 0 0 100%;
+  }
+}
+
+/* Special case for a single card */
+.users-list.single-user {
+  justify-content: center;
+}
+
+.user-card.single-card {
+  width: 100%; /* Ensure single card takes full width */
+  max-width: 600px; /* Limit max width for better appearance */
+  margin: 0 auto; /* Center the card */
+}
+
+.user-card {
+  background-color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  position: relative;
+  padding: 20px;
+}
+
+.user-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.user-picture-wrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.user-picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* User info styling */
+.user-info {
+  text-align: center;
+}
+
+.user-name {
+  font-size: 22px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.user-email,
+.user-phone,
+.user-type,
+.user-gender {
+  font-size: 16px;
+  color: #666;
+  margin: 5px 0;
+}
+
+.user-email strong,
+.user-phone strong,
+.user-type strong,
+.user-gender strong {
+  color: #2c3e50;
+}
+
+/* Card styles based on account type */
+.star-user {
+  background-color: #0be161; /* Green for Star */
+}
+
+.vip-user {
+  background-color: #bdbdbd; /* Grey for VIP */
+}
+
+.premium-user {
+  background-color: #edc43a; /* Dark gold for Premium */
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .users-list {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .user-card {
+    width: 100%; /* Full width on small screens */
+  }
+}

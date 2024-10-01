@@ -1,0 +1,270 @@
+/* Container Styling */
+.feedback-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Title Styling */
+.feedback-title {
+  font-size: 36px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.feedback-title::after {
+  content: '';
+  width: 60px;
+  height: 3px;
+  background-color: #007bff;
+  display: block;
+  margin: 8px auto 0;
+  border-radius: 5px;
+}
+
+/* Controls for Filtering Feedback */
+.feedback-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 15px;
+}
+
+/* Filter Dropdown Styling */
+.feedback-filter {
+  padding: 12px;
+  font-size: 18px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+  width: 220px; /* Adjust width based on your design */
+  appearance: none; /* Remove default dropdown arrow styling */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'%3E%3Cpath d='M70 98.63 28.13 56.74a5.12 5.12 0 0 1 7.25-7.25L70 84.13l34.63-34.64a5.12 5.12 0 1 1 7.25 7.25L70 98.63z' fill='%23666'/%3E%3C/svg%3E"); /* Custom dropdown arrow */
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 12px;
+  outline: none;
+}
+
+.feedback-filter:hover {
+  background-color: #e0e0e0;
+  border-color: #ccc;
+}
+
+.feedback-filter:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+/* Option Styling */
+.feedback-filter option {
+  padding: 12px;
+  font-size: 18px;
+}
+
+/* Feedback List Styling */
+.feedback-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  width: 100%;
+}
+
+/* Card Styling for Each Feedback */
+.feedback-card {
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 25px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.feedback-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Profile Image Styling */
+.feedback-user-image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.feedback-card:hover .feedback-user-image img {
+  transform: scale(1.1);
+}
+
+/* Provider Name Styling */
+.feedback-provider-name {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* User Info Styling */
+.feedback-user-info {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+/* Feedback Text Styling */
+.feedback-text {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+/* Feedback Rating (Stars) Styling */
+.feedback-rating {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.feedback-rating .fa-star {
+  transition: transform 0.3s ease;
+}
+
+.feedback-card:hover .fa-star {
+  transform: rotate(15deg);
+}
+
+/* Textarea for Feedback Response */
+.feedback-response {
+  width: calc(100% - 20px);
+  height: 80px;
+  padding: 12px;
+  margin: 0 auto 12px auto;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  resize: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  display: block;
+}
+
+.feedback-response:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+/* Feedback Comment Styling */
+.feedback-comment {
+  font-size: 16px;
+  color: #555;
+  margin-top: 12px;
+  text-align: left;
+  word-break: break-word;
+}
+
+/* Submit Button Styling */
+.feedback-submit-button {
+  padding: 12px 25px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  margin-top: 15px;
+}
+
+.feedback-submit-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.feedback-submit-button:active {
+  background-color: #004494;
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(0, 123, 255, 0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .feedback-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .feedback-card {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .feedback-title {
+    font-size: 28px;
+  }
+}
+/* Date Filter Styling */
+/* Date Filter Styling - Horizontal Alignment */
+.feedback-date-filter {
+  display: flex;
+  align-items: center;  /* Align the label and input on the same line */
+  gap: 10px;
+  margin-left: 20px;
+}
+
+.feedback-date-input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  width: 200px; /* Adjust width as per your design */
+}
+
+.feedback-date-input:hover {
+  background-color: #e0e0e0;
+  border-color: #ccc;
+}
+
+.feedback-date-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+/* Label Styling - Inline with Input */
+.feedback-date-filter label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-right: 10px;  /* Add some space between label and input */
+}
+

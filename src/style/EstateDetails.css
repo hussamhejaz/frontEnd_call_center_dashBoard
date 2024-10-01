@@ -1,0 +1,259 @@
+/* Container for estate details */
+.estate-details-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+/* Estate title */
+.estate-details__title {
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Estate details table layout */
+.estate-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+    color: #444;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Table header */
+.estate-details-table th {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 3px solid #ecf0f1;
+}
+
+/* Table rows */
+.estate-details-table td {
+    padding: 20px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ecf0f1;
+    transition: background-color 0.2s ease;
+}
+
+/* Alternating row color for modern look */
+.estate-details-table tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+/* Row hover effect */
+.estate-details-table tr:hover {
+    background-color: #eaf2f8;
+}
+
+/* Estate image section */
+.estate-details__image {
+    margin-bottom: 40px;
+}
+
+.estate-details__thumbnail {
+    width: 100%;
+    max-width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.estate-details__thumbnail:hover {
+    transform: scale(1.05);
+}
+
+/* Estate actions (buttons) */
+.estate-details__actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.estate-details__btn {
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+    width: 160px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.estate-details__btn--accept {
+    background-color: #27ae60; /* Green */
+    color: white;
+}
+
+.estate-details__btn--reject {
+    background-color: #e74c3c; /* Red */
+    color: white;
+}
+
+.estate-details__btn:hover {
+    transform: translateY(-3px);
+}
+
+.estate-details__btn--accept:hover {
+    background-color: #2ecc71;
+}
+
+.estate-details__btn--reject:hover {
+    background-color: #c0392b;
+}
+
+/* Modal design for full-screen image */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+.modal__content {
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 80%;
+    max-width: 1000px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.modal__image {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.modal__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #333;
+}
+
+.modal__close:hover {
+    color: #e74c3c;
+}
+
+/* Confirmation modal design */
+.confirmation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease; /* Add fade-in animation */
+}
+
+.confirmation-modal__content {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease; /* Add slide-up animation */
+}
+
+.confirmation-modal__content p {
+    font-size: 1.5rem;
+    color: #34495e;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.confirmation-modal__btn {
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.confirmation-modal__btn--confirm {
+    background-color: #27ae60; /* Green */
+    color: white;
+}
+
+.confirmation-modal__btn--cancel {
+    background-color: #e74c3c; /* Red */
+    color: white;
+}
+
+.confirmation-modal__btn:hover {
+    transform: translateY(-3px);
+}
+
+.confirmation-modal__btn--confirm:hover {
+    background-color: #2ecc71;
+}
+
+.confirmation-modal__btn--cancel:hover {
+    background-color: #c0392b;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
