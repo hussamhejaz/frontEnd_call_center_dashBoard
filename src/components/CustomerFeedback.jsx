@@ -15,7 +15,7 @@ const CustomerFeedback = () => {
   const [selectedDate, setSelectedDate] = useState('');  
 
   useEffect(() => {
-    fetch('http://localhost:5001/feedbacks')
+    fetch('https://backend-call-center-2.onrender.com/feedbacks')
       .then((response) => response.json())
       .then((data) => {
         setFeedbackData(data);  
@@ -41,7 +41,7 @@ const CustomerFeedback = () => {
     }));
 
     try {
-      const response = await fetch(`http://localhost:5001/feedbacks/${feedbackId}/comments`, {
+      const response = await fetch(`https://backend-call-center-2.onrender.com/feedbacks/${feedbackId}/comments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

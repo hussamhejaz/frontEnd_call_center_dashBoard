@@ -11,7 +11,7 @@ const ProviderFeedback = () => {
   const [selectedDate, setSelectedDate] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:5001/provider-feedback-to-customer')
+    fetch('https://backend-call-center-2.onrender.com/provider-feedback-to-customer')
       .then((response) => response.json())
       .then((data) => {
         setFeedbackData(data);

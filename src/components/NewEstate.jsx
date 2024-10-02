@@ -11,23 +11,28 @@ const NewEstate = () => {
   useEffect(() => {
     const fetchEstates = async () => {
       try {
-        const response = await fetch('http://localhost:5001/new-estate');
+        const response = await fetch('https://backend-call-center-2.onrender.com/new-estate');
+    
+        // Check if the response status is OK (status code 200-299)
         if (!response.ok) {
-          throw new Error('Failed to fetch estates');
+          throw new Error(`HTTP error! status: ${response.status} - ${response.statusText}`);
         }
+    
         const data = await response.json();
-        
+    
         // If new estates are found, show a toast notification
         if (data.length > estates.length) {
           const newEstate = data[data.length - 1];
           toast.success(`New estate added: ${newEstate.companyName}`);
         }
+    
         setEstates(data);
       } catch (error) {
         console.error('Error fetching estates:', error);
-        toast.error('Error fetching estates.');
+        toast.error(`Error fetching estates: ${error.message}`);
       }
     };
+    
 
     // Initial fetch
     fetchEstates();

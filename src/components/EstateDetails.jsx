@@ -14,7 +14,7 @@ const EstateDetails = () => {
   useEffect(() => {
     const fetchEstateDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:5001/new-estate`);
+        const response = await fetch(`https://backend-call-center-2.onrender.com/new-estate`);
         if (!response.ok) {
           throw new Error('Failed to fetch estate details');
         }
@@ -61,7 +61,7 @@ const EstateDetails = () => {
     const category = getCategory(estate.type);
 
     try {
-      const updateUrl = `http://localhost:5001/update-isaccepted/${category}/${estateId}`;
+      const updateUrl = `https://backend-call-center-2.onrender.com/update-isaccepted/${category}/${estateId}`;
       const response = await fetch(updateUrl, {
         method: 'PUT',
         headers: {

@@ -15,7 +15,7 @@ const Providers = () => {
   useEffect(() => {
     const fetchProviders = async () => {
       try {
-        const response = await fetch('http://localhost:5001/providers'); // Fetching all providers
+        const response = await fetch('https://backend-call-center-2.onrender.com/providers'); // Fetching all providers
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

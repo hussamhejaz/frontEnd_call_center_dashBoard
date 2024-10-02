@@ -15,7 +15,7 @@ const Users = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch('http://localhost:5001/user');
+        const response = await fetch('https://backend-call-center-2.onrender.com/user');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

@@ -14,7 +14,7 @@ const ProviderProfile = () => {
   useEffect(() => {
     const fetchEstateAndProvider = async () => {
       try {
-        const response = await fetch(`http://localhost:5001/estate-with-owner/${estateId}`);
+        const response = await fetch(`https://backend-call-center-2.onrender.com/estate-with-owner/${estateId}`);
         if (!response.ok) {
           throw new Error('Error fetching estate and provider details');
         }
@@ -28,7 +28,7 @@ const ProviderProfile = () => {
 
     const fetchBookings = async () => {
       try {
-        const response = await fetch(`http://localhost:5001/estate-bookings-with-users/${estateId}`);
+        const response = await fetch(`https://backend-call-center-2.onrender.com/estate-bookings-with-users/${estateId}`);
         if (!response.ok) {
           throw new Error('Error fetching bookings');
         }

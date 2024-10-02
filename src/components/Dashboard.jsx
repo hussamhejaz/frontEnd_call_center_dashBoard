@@ -23,7 +23,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/allusers');
+        const response = await axios.get('https://backend-call-center-2.onrender.com/allusers');
         const users = response.data;
 
         console.log('Fetched Users:', users);

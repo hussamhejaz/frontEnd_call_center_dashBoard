@@ -13,7 +13,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5001/user-with-bookings/${userId}`);
+        const response = await fetch(`https://backend-call-center-2.onrender.com/user-with-bookings/${userId}`);
         if (!response.ok) {
           throw new Error('Error fetching data');
         }
