@@ -1,3 +1,5 @@
+// App.js
+
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
@@ -12,8 +14,9 @@ import NewEstate from './components/NewEstate';
 import EstateDetails from './components/EstateDetails';
 import RegisterAdmin from './components/RegisterAdmin';
 import AdminSection from './components/AdminSection';
+import Posts from './components/Posts'; // Import Posts component
 import { AuthProvider, useAuth } from './auth/AuthContext';
-import ProtectedRoute from './auth/ProtectedRoute';  // Import ProtectedRoute
+import ProtectedRoute from './auth/ProtectedRoute'; // Import ProtectedRoute
 
 import './App.css';
 
@@ -52,31 +55,75 @@ const ProtectedApp = () => {
           {/* Protected routes using ProtectedRoute */}
           <Route
             path="/providers"
-            element={<ProtectedRoute element={<Providers />} allowedRoles={['admin', 'superAdmin']} />}
+            element={
+              <ProtectedRoute
+                element={<Providers />}
+                allowedRoles={['admin', 'superAdmin']}
+              />
+            }
           />
           <Route
             path="/users"
-            element={<ProtectedRoute element={<Users />} allowedRoles={['admin', 'superAdmin']} />}
+            element={
+              <ProtectedRoute
+                element={<Users />}
+                allowedRoles={['admin', 'superAdmin']}
+              />
+            }
           />
           <Route
             path="/feedback"
-            element={<ProtectedRoute element={<CustomerFeedback />} allowedRoles={['admin', 'superAdmin']} />}
+            element={
+              <ProtectedRoute
+                element={<CustomerFeedback />}
+                allowedRoles={['admin', 'superAdmin']}
+              />
+            }
           />
           <Route
             path="/new-estate"
-            element={<ProtectedRoute element={<NewEstate />} allowedRoles={['admin', 'superAdmin']} />}
+            element={
+              <ProtectedRoute
+                element={<NewEstate />}
+                allowedRoles={['admin', 'superAdmin']}
+              />
+            }
+          />
+          <Route
+            path="/posts"
+            element={
+              <ProtectedRoute
+                element={<Posts />} // Posts component
+                allowedRoles={['admin', 'superAdmin']} // Allowed roles
+              />
+            }
           />
           <Route
             path="/provider-feedback"
-            element={<ProtectedRoute element={<ProviderFeedback />} allowedRoles={['superAdmin']} />}
+            element={
+              <ProtectedRoute
+                element={<ProviderFeedback />}
+                allowedRoles={['superAdmin']}
+              />
+            }
           />
           <Route
             path="/register-admin"
-            element={<ProtectedRoute element={<RegisterAdmin />} allowedRoles={['superAdmin']} />}
+            element={
+              <ProtectedRoute
+                element={<RegisterAdmin />}
+                allowedRoles={['superAdmin']}
+              />
+            }
           />
           <Route
             path="/admin-section"
-            element={<ProtectedRoute element={<AdminSection />} allowedRoles={['superAdmin']} />}
+            element={
+              <ProtectedRoute
+                element={<AdminSection />}
+                allowedRoles={['superAdmin']}
+              />
+            }
           />
 
           {/* Profile routes */}

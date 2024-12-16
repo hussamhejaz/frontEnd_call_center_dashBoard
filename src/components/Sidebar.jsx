@@ -1,6 +1,19 @@
+// Sidebar.js
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaHome, FaUsers, FaUserTie, FaSignOutAlt, FaBars, FaComments, FaBuilding, FaUserPlus, FaUserShield } from 'react-icons/fa'; // Added FaUserShield for Admin Section icon
+import {
+  FaHome,
+  FaUsers,
+  FaUserTie,
+  FaSignOutAlt,
+  FaBars,
+  FaComments,
+  FaBuilding,
+  FaUserPlus,
+  FaUserShield,
+  FaRegNewspaper, // Added for Posts section
+} from 'react-icons/fa'; // Added FaUserShield for Admin Section icon
 import '../style/Sidebar.css';
 import { useAuth } from '../auth/AuthContext';
 
@@ -42,7 +55,7 @@ const Sidebar = () => {
           </li>
         )}
 
-        {/* Show Users, Providers, Customer Feedback, New Estate for 'admin' and 'superAdmin' */}
+        {/* Show Users, Providers, Customer Feedback, New Estate, and Posts for 'admin' and 'superAdmin' */}
         {(currentUser?.role === 'admin' || currentUser?.role === 'superAdmin') && (
           <>
             <li className="sidebar-item">
@@ -67,6 +80,13 @@ const Sidebar = () => {
               <Link to="/new-estate" className="sidebar-link">
                 <FaBuilding className="sidebar-icon" />
                 {isOpen && <span>New Estate</span>}
+              </Link>
+            </li>
+            {/* New Posts Link */}
+            <li className="sidebar-item">
+              <Link to="/posts" className="sidebar-link">
+                <FaRegNewspaper className="sidebar-icon" />
+                {isOpen && <span>Posts</span>}
               </Link>
             </li>
           </>
