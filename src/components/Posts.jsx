@@ -131,18 +131,18 @@ const Posts = () => {
 
   const handleStatusChange = async () => {
     if (!selectedPost || !actionType) return;
-
+  
     setActionLoading(true);
     try {
-      const status = actionType === 'accept' ? 1 : 2;
+      const status = actionType === 'accept' ? '1' : '2'; // Convert to string
       await axios.patch(`https://backend-call-center-2.onrender.com/posts/${selectedPost}/status`, { status });
-
+  
       // Update the local state to reflect the change
       setPosts((prevPosts) => ({
         ...prevPosts,
         [selectedPost]: { ...prevPosts[selectedPost], Status: status },
       }));
-
+  
       setSuccessMessage(`Post has been ${actionType === 'accept' ? 'accepted' : 'rejected'} successfully.`);
     } catch (error) {
       console.error('Error updating post status:', error);
@@ -155,14 +155,11 @@ const Posts = () => {
 
   const getStatusChip = (status) => {
     switch (status) {
-      case '0':
-      case 0:
+      case '0': // Treat status as a string
         return <Chip label="Under Process" color="warning" />;
-      case '1':
-      case 1:
+      case '1': // Accepted
         return <Chip label="Accepted" color="success" icon={<CheckCircle />} />;
-      case '2':
-      case 2:
+      case '2': // Rejected
         return <Chip label="Rejected" color="error" icon={<Cancel />} />;
       default:
         return <Chip label="Unknown" />;
@@ -182,7 +179,7 @@ const Posts = () => {
   const filteredPosts = Object.entries(posts).filter(([id, post]) => {
     const matchesSearch = post.Description.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesStatus =
-      filterStatus === 'all' || Number(post.Status) === filterStatus;
+      filterStatus === 'all' || post.Status === filterStatus.toString(); // Convert filterStatus to string
     return matchesSearch && matchesStatus;
   });
 
@@ -347,7 +344,7 @@ const Posts = () => {
                     <TableCell>{getStatusChip(post.Status)}</TableCell>
                     <TableCell align="center">
                       <Stack direction="row" spacing={1} justifyContent="center">
-                        {post.Status !== "1" && (
+                        {post.Status !== 1 && (
                           <Button
                             variant="contained"
                             color="success"
@@ -357,7 +354,7 @@ const Posts = () => {
                             Accept
                           </Button>
                         )}
-                        {post.Status !== "2" && (
+                        {post.Status !== 2 && (
                           <Button
                             variant="contained"
                             color="error"
