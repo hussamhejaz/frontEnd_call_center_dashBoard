@@ -347,7 +347,7 @@ const Posts = () => {
                     <TableCell>{getStatusChip(post.Status)}</TableCell>
                     <TableCell align="center">
                       <Stack direction="row" spacing={1} justifyContent="center">
-                        {post.Status !== 1 && (
+                        {post.Status !== "1" && (
                           <Button
                             variant="contained"
                             color="success"
@@ -357,7 +357,7 @@ const Posts = () => {
                             Accept
                           </Button>
                         )}
-                        {post.Status !== 2 && (
+                        {post.Status !== "2" && (
                           <Button
                             variant="contained"
                             color="error"
