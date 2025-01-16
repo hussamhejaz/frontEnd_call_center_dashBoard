@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import '../style/EstateDetails.css'; // Ensure you have the CSS file for styling
+import '../style/EstateDetails.css';
+import CircularLoader from './CircularLoader'; // Ensure you have the CSS file for styling
 
 // Reusable PDF Viewer Component
 const PDFViewer = ({ pdfUrl, title }) => (
   <div className="pdf-viewer">
     <h3>{title}</h3>
-    {pdfUrl && pdfUrl !== 'No facilityPdfUrl' ? (
+    {pdfUrl !== 'No facilityPdfUrl' && pdfUrl !== 'No TaxPdfUrl'? (
       <div>
         <object data={pdfUrl} type="application/pdf" width="100%" height="600px">
           <p>
@@ -38,6 +39,7 @@ const EstateDetails = () => {
     const fetchEstateDetails = async () => {
       try {
         const response = await fetch(`https://backend-call-center-2.onrender.com/new-estate`);
+        // const response = await fetch(`http://localhost:10000/new-estate`);
         if (!response.ok) {
           throw new Error('Failed to fetch estate details');
         }
@@ -119,7 +121,7 @@ const EstateDetails = () => {
   }
 
   if (!estate) {
-    return <div>Loading...</div>;
+    return <CircularLoader />;
   }
 
   return (
@@ -128,7 +130,7 @@ const EstateDetails = () => {
 
       {/* Display both PDFs */}
       <PDFViewer pdfUrl={estate.facilityPdfUrl} title="Facility PDF" />
-      <PDFViewer pdfUrl={estate.taxPdfUrl} title="Tax Pdf" />
+      <PDFViewer pdfUrl={estate.taxPdfUrl} title=" Tax PDF" />
 
       <table className="estate-details-table">
         <tbody>
@@ -163,10 +165,6 @@ const EstateDetails = () => {
           <tr>
             <th>Account Type</th>
             <td>{getAccountType(estate.accountType)}</td>
-          </tr>
-          <tr>
-            <th>Tax Number</th>
-            <td>{estate.taxNumber || 'Unknown Tax Number'}</td>
           </tr>
           <tr>
             <th>Music</th>
