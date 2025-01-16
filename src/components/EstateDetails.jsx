@@ -2,11 +2,34 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import '../style/EstateDetails.css'; // Ensure you have the CSS file for styling
 
+// Reusable PDF Viewer Component
+const PDFViewer = ({ pdfUrl, title }) => (
+  <div className="pdf-viewer">
+    <h3>{title}</h3>
+    {pdfUrl && pdfUrl !== 'No facilityPdfUrl' ? (
+      <div>
+        <object data={pdfUrl} type="application/pdf" width="100%" height="600px">
+          <p>
+            Your browser does not support PDF viewing.
+            <a href={pdfUrl} download>
+              Download PDF
+            </a>
+          </p>
+        </object>
+        <a href={pdfUrl} download className="download-button">
+          Download PDF
+        </a>
+      </div>
+    ) : (
+      <p>No PDF available</p>
+    )}
+  </div>
+);
+
 const EstateDetails = () => {
   const { estateId } = useParams();
   const [estate, setEstate] = useState(null);
   const [error, setError] = useState('');
-  const [isImageModalOpen, setIsImageModalOpen] = useState(false); 
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [actionType, setActionType] = useState('');
   const navigate = useNavigate();
@@ -74,7 +97,7 @@ const EstateDetails = () => {
         throw new Error(`Failed to update estate. Status: ${response.status}`);
       }
 
-      setShowConfirmation(false); 
+      setShowConfirmation(false);
       navigate('/new-estate');
     } catch (error) {
       console.error(`Error: ${error.message}`);
@@ -84,11 +107,11 @@ const EstateDetails = () => {
 
   const openConfirmationBox = (action) => {
     setActionType(action);
-    setShowConfirmation(true); 
+    setShowConfirmation(true);
   };
 
   const closeConfirmationBox = () => {
-    setShowConfirmation(false); 
+    setShowConfirmation(false);
   };
 
   if (error) {
@@ -96,31 +119,16 @@ const EstateDetails = () => {
   }
 
   if (!estate) {
-    return <div>Loading...</div>; 
+    return <div>Loading...</div>;
   }
 
   return (
     <div className="estate-details-container">
       <h2 className="estate-details__title">{estate.companyName} Profile</h2>
 
-      <div className="estate-details__image">
-        <img
-          src={estate.facilityImageUrl}
-          alt="Estate Thumbnail"
-          className="estate-details__thumbnail"
-          onClick={() => setIsImageModalOpen(true)}
-        />
-      </div>
-
-      {/* Full-Screen Image Modal */}
-      {isImageModalOpen && (
-        <div className="modal">
-          <div className="modal__content">
-            <span className="modal__close" onClick={() => setIsImageModalOpen(false)}>&times;</span>
-            <img src={estate.facilityImageUrl} alt="Full Size Estate" className="modal__image" />
-          </div>
-        </div>
-      )}
+      {/* Display both PDFs */}
+      <PDFViewer pdfUrl={estate.facilityPdfUrl} title="Facility PDF" />
+      <PDFViewer pdfUrl={estate.taxPdfUrl} title="Tax Pdf" />
 
       <table className="estate-details-table">
         <tbody>
@@ -188,21 +196,38 @@ const EstateDetails = () => {
       </table>
 
       <div className="estate-details__actions">
-        <button onClick={() => openConfirmationBox("accept")} className="estate-details__btn estate-details__btn--accept">Accept</button>
-        <button onClick={() => openConfirmationBox("reject")} className="estate-details__btn estate-details__btn--reject">Reject</button>
+        <button
+          onClick={() => openConfirmationBox("accept")}
+          className="estate-details__btn estate-details__btn--accept"
+        >
+          Accept
+        </button>
+        <button
+          onClick={() => openConfirmationBox("reject")}
+          className="estate-details__btn estate-details__btn--reject"
+        >
+          Reject
+        </button>
       </div>
 
       {showConfirmation && (
         <div className="confirmation-modal">
           <div className="confirmation-modal__content">
-            <p>Are you sure you want to {actionType === 'accept' ? 'accept' : 'reject'} this estate?</p>
+            <p>
+              Are you sure you want to {actionType === 'accept' ? 'accept' : 'reject'} this estate?
+            </p>
             <button
               onClick={() => handleUpdateIsAccepted(actionType === 'accept' ? "2" : "3")}
               className="confirmation-modal__btn confirmation-modal__btn--confirm"
             >
               Confirm
             </button>
-            <button onClick={closeConfirmationBox} className="confirmation-modal__btn confirmation-modal__btn--cancel">Cancel</button>
+            <button
+              onClick={closeConfirmationBox}
+              className="confirmation-modal__btn confirmation-modal__btn--cancel"
+            >
+              Cancel
+            </button>
           </div>
         </div>
       )}
