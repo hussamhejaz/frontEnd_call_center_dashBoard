@@ -17,6 +17,7 @@ import AdminSection from './components/AdminSection';
 import Posts from './components/Posts'; // Import Posts component
 import { AuthProvider, useAuth } from './auth/AuthContext';
 import ProtectedRoute from './auth/ProtectedRoute'; // Import ProtectedRoute
+import CircularLoader from './components/CircularLoader';
 
 import './App.css';
 
@@ -42,7 +43,7 @@ const ProtectedApp = () => {
   const { isAuthenticated, loading } = useAuth();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <CircularLoader />;
   }
 
   return isAuthenticated ? (
