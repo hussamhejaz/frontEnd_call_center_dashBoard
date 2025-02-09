@@ -1,0 +1,179 @@
+/* General Page Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .provider-management {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .provider-management h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Search and Filter Section */
+  .search-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .search-filters input[type="text"],
+  .search-filters select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border 0.2s;
+  }
+  
+  .search-filters input[type="text"]:focus,
+  .search-filters select:focus {
+    outline: none;
+    border-color: #6c63ff;
+  }
+  
+  /* Table Styles */
+  .table-container {
+    overflow-x: auto;
+    margin-bottom: 2rem;
+  }
+  
+  .provider-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+  }
+  
+  .provider-table th,
+  .provider-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .provider-table th {
+    background-color: #f0f0f0;
+    color: #555;
+    font-weight: 600;
+  }
+  
+  .provider-table tr:nth-child(even) {
+    background-color: #fafafa;
+  }
+  
+  .provider-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .action-button {
+    background-color: #6c63ff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .action-button:hover {
+    background-color: #5750d6;
+  }
+  
+  /* Upgrade Card Styles */
+  .upgrade-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 1.5rem;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .upgrade-card h2 {
+    margin-top: 0;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .upgrade-card p {
+    color: #555;
+    margin-bottom: 1rem;
+  }
+  
+  /* Upgrade Select Dropdown */
+  .upgrade-select-group select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.2s;
+    margin-bottom: 1.5rem;
+  }
+  
+  .upgrade-select-group select:focus {
+    outline: none;
+    border-color: #6c63ff;
+  }
+  
+  /* Upgrade and Cancel Button Styles */
+  .upgrade-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .upgrade-button:hover {
+    background-color: #218838;
+  }
+  
+  .cancel-button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+    font-size: 1rem;
+  }
+  
+  .cancel-button:hover {
+    background-color: #c82333;
+  }
+  
+  .message {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .search-filters {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  

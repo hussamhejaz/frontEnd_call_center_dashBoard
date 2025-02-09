@@ -1,7 +1,5 @@
-// Sidebar.js
-
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import {
   FaHome,
   FaUsers,
@@ -12,14 +10,15 @@ import {
   FaBuilding,
   FaUserPlus,
   FaUserShield,
-  FaRegNewspaper, // Added for Posts section
-} from 'react-icons/fa'; // Added FaUserShield for Admin Section icon
+  FaRegNewspaper,
+  FaLevelUpAlt,
+} from 'react-icons/fa';
 import '../style/Sidebar.css';
 import { useAuth } from '../auth/AuthContext';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const { logout, currentUser } = useAuth(); // Get currentUser from AuthContext
+  const { logout, currentUser } = useAuth();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -31,102 +30,163 @@ const Sidebar = () => {
 
   return (
     <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
-      {/* Toggle button */}
-      <button className="toggle-button" onClick={toggleSidebar}>
-        <FaBars />
-      </button>
-
-      {/* Sidebar header */}
+      {/* Sidebar Header */}
       <div className="sidebar-header">
+        <button className="toggle-button" onClick={toggleSidebar}>
+          <FaBars />
+        </button>
         {isOpen && <h2 className="title">Diamond Host</h2>}
-        {isOpen && currentUser && (
-          <p className="welcome-message">Welcome, {currentUser.firstName}!</p> // Display user's first name
-        )}
       </div>
 
-      <ul className="sidebar-list">
-        {/* Show Dashboard only for 'superAdmin' */}
-        {currentUser?.role === 'superAdmin' && (
-          <li className="sidebar-item">
-            <Link to="/" className="sidebar-link">
-              <FaHome className="sidebar-icon" />
-              {isOpen && <span>Dashboard</span>}
-            </Link>
-          </li>
+      {/* Sidebar Content */}
+      <div className="sidebar-content">
+        {isOpen && currentUser && (
+          <p className="welcome-message">Welcome, {currentUser.firstName}!</p>
         )}
 
-        {/* Show Users, Providers, Customer Feedback, New Estate, and Posts for 'admin' and 'superAdmin' */}
-        {(currentUser?.role === 'admin' || currentUser?.role === 'superAdmin') && (
-          <>
+        <ul className="sidebar-list">
+          {currentUser?.role === 'superAdmin' && (
             <li className="sidebar-item">
-              <Link to="/users" className="sidebar-link">
-                <FaUsers className="sidebar-icon" />
-                {isOpen && <span>Users</span>}
-              </Link>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  `sidebar-link ${isActive ? 'active' : ''}`
+                }
+              >
+                <FaHome className="sidebar-icon" />
+                <span>Dashboard</span>
+              </NavLink>
             </li>
-            <li className="sidebar-item">
-              <Link to="/providers" className="sidebar-link">
-                <FaUserTie className="sidebar-icon" />
-                {isOpen && <span>Providers</span>}
-              </Link>
-            </li>
-            <li className="sidebar-item">
-              <Link to="/feedback" className="sidebar-link">
-                <FaComments className="sidebar-icon" />
-                {isOpen && <span>Customer Feedback</span>}
-              </Link>
-            </li>
-            <li className="sidebar-item">
-              <Link to="/new-estate" className="sidebar-link">
-                <FaBuilding className="sidebar-icon" />
-                {isOpen && <span>New Estate</span>}
-              </Link>
-            </li>
-            {/* New Posts Link */}
-            <li className="sidebar-item">
-              <Link to="/posts" className="sidebar-link">
-                <FaRegNewspaper className="sidebar-icon" />
-                {isOpen && <span>Posts</span>}
-              </Link>
-            </li>
-          </>
-        )}
+          )}
 
-        {/* Show Admin Section, Provider Feedback, and Register Admin only for 'superAdmin' */}
-        {currentUser?.role === 'superAdmin' && (
-          <>
-            <li className="sidebar-item">
-              <Link to="/admin-section" className="sidebar-link">
-                <FaUserShield className="sidebar-icon" />
-                {isOpen && <span>Admin Section</span>}
-              </Link>
-            </li>
-            <li className="sidebar-item">
-              <Link to="/provider-feedback" className="sidebar-link">
-                <FaComments className="sidebar-icon" />
-                {isOpen && <span>Provider Feedback</span>}
-              </Link>
-            </li>
-            <li className="sidebar-item">
-              <Link to="/register-admin" className="sidebar-link">
-                <FaUserPlus className="sidebar-icon" />
-                {isOpen && <span>Register New Admin</span>}
-              </Link>
-            </li>
-          </>
-        )}
+          {(currentUser?.role === 'admin' || currentUser?.role === 'superAdmin') && (
+            <>
+              <li className="sidebar-item">
+                <NavLink
+                  to="/users"
+                  className={({ isActive }) =>
+                    `sidebar-link ${isActive ? 'active' : ''}`
+                  }
+                >
+                  <FaUsers className="sidebar-icon" />
+                  <span>Users</span>
+                </NavLink>
+              </li>
+              <li className="sidebar-item">
+                <NavLink
+                  to="/providers"
+                  className={({ isActive }) =>
+                    `sidebar-link ${isActive ? 'active' : ''}`
+                  }
+                >
+                  <FaUserTie className="sidebar-icon" />
+                  <span>Providers</span>
+                </NavLink>
+              </li>
+              <li className="sidebar-item">
+                <NavLink
+                  to="/feedback"
+                  className={({ isActive }) =>
+                    `sidebar-link ${isActive ? 'active' : ''}`
+                  }
+                >
+                  <FaComments className="sidebar-icon" />
+                  <span>Feedback</span>
+                </NavLink>
+              </li>
+              <li className="sidebar-item">
+                <NavLink
+                  to="/new-estate"
+                  className={({ isActive }) =>
+                    `sidebar-link ${isActive ? 'active' : ''}`
+                  }
+                >
+                  <FaBuilding className="sidebar-icon" />
+                  <span>New Estate</span>
+                </NavLink>
+              </li>
+              <li className="sidebar-item">
+                <NavLink
+                  to="/posts"
+                  className={({ isActive }) =>
+                    `sidebar-link ${isActive ? 'active' : ''}`
+                  }
+                >
+                  <FaRegNewspaper className="sidebar-icon" />
+                  <span>Posts</span>
+                </NavLink>
+              </li>
+            </>
+          )}
 
-        {/* Settings for all users */}
-        {/* Uncomment if you want settings visible to all users */}
-        {/* <li className="sidebar-item">
-          <Link to="/settings" className="sidebar-link">
-            <FaCog className="sidebar-icon" />
-            {isOpen && <span>Settings</span>}
-          </Link>
-        </li> */}
-      </ul>
+          {currentUser?.role === 'superAdmin' && (
+            <>
+              <li className="sidebar-item">
+                <NavLink
+                  to="/admin-section"
+                  className={({ isActive }) =>
+                    `sidebar-link ${isActive ? 'active' : ''}`
+                  }
+                >
+                  <FaUserShield className="sidebar-icon" />
+                  <span>Admin Section</span>
+                </NavLink>
+              </li>
+              <li className="sidebar-item">
+                <NavLink
+                  to="/provider-feedback"
+                  className={({ isActive }) =>
+                    `sidebar-link ${isActive ? 'active' : ''}`
+                  }
+                >
+                  <FaComments className="sidebar-icon" />
+                  <span>Provider Feedback</span>
+                </NavLink>
+              </li>
+              <li className="sidebar-item">
+                <NavLink
+                  to="/register-admin"
+                  className={({ isActive }) =>
+                    `sidebar-link ${isActive ? 'active' : ''}`
+                  }
+                >
+                  <FaUserPlus className="sidebar-icon" />
+                  <span>Register Admin</span>
+                </NavLink>
+              </li>
+            </>
+          )}
 
-      {/* Logout button */}
+          {(currentUser?.role === 'admin' || currentUser?.role === 'superAdmin') && (
+            <>
+              <li className="sidebar-item">
+                <NavLink
+                  to="/upgrade-user-account"
+                  className={({ isActive }) =>
+                    `sidebar-link ${isActive ? 'active' : ''}`
+                  }
+                >
+                  <FaLevelUpAlt className="sidebar-icon" />
+                  <span>Upgrade User Account</span>
+                </NavLink>
+              </li>
+              <li className="sidebar-item">
+                <NavLink
+                  to="/upgrade-provider-account"
+                  className={({ isActive }) =>
+                    `sidebar-link ${isActive ? 'active' : ''}`
+                  }
+                >
+                  <FaLevelUpAlt className="sidebar-icon" />
+                  <span>Upgrade Provider Account</span>
+                </NavLink>
+              </li>
+            </>
+          )}
+        </ul>
+      </div>
+
+      {/* Logout Button */}
       <div className="btn-logout-container">
         <button onClick={handleLogout} className="btn-logout">
           <FaSignOutAlt className="sidebar-icon" />

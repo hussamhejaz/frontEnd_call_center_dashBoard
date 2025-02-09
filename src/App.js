@@ -15,6 +15,8 @@ import EstateDetails from './components/EstateDetails';
 import RegisterAdmin from './components/RegisterAdmin';
 import AdminSection from './components/AdminSection';
 import Posts from './components/Posts'; // Import Posts component
+import UpgradeUserAccount from './components/UpgradeUserAccount';
+import UpgradeProviderAccount from './components/UpgradeProviderAccount';
 import { AuthProvider, useAuth } from './auth/AuthContext';
 import ProtectedRoute from './auth/ProtectedRoute'; // Import ProtectedRoute
 import CircularLoader from './components/CircularLoader';
@@ -27,12 +29,7 @@ function App() {
       <AuthProvider>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route
-            path="/*"
-            element={
-              <ProtectedApp />
-            }
-          />
+          <Route path="/*" element={<ProtectedApp />} />
         </Routes>
       </AuthProvider>
     </Router>
@@ -94,8 +91,8 @@ const ProtectedApp = () => {
             path="/posts"
             element={
               <ProtectedRoute
-                element={<Posts />} // Posts component
-                allowedRoles={['admin', 'superAdmin']} // Allowed roles
+                element={<Posts />}
+                allowedRoles={['admin', 'superAdmin']}
               />
             }
           />
@@ -123,6 +120,26 @@ const ProtectedApp = () => {
               <ProtectedRoute
                 element={<AdminSection />}
                 allowedRoles={['superAdmin']}
+              />
+            }
+          />
+
+          {/* Upgrade Account Routes (accessible to admin and superAdmin) */}
+          <Route
+            path="/upgrade-user-account"
+            element={
+              <ProtectedRoute
+                element={<UpgradeUserAccount />}
+                allowedRoles={['admin', 'superAdmin']}
+              />
+            }
+          />
+          <Route
+            path="/upgrade-provider-account"
+            element={
+              <ProtectedRoute
+                element={<UpgradeProviderAccount />}
+                allowedRoles={['admin', 'superAdmin']}
               />
             }
           />
