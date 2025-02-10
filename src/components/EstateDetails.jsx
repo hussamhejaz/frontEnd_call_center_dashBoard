@@ -147,6 +147,10 @@ const EstateDetails = () => {
             <td>{estate.phone || 'Unknown Phone'}</td>
           </tr>
           <tr>
+            <th>agentCode</th>
+            <td>{estate.agentCode || 'Unknown Phone'}</td>
+          </tr>
+          <tr>
             <th>City</th>
             <td>{estate.city || 'Unknown City'}</td>
           </tr>
