@@ -82,10 +82,11 @@ const EstateDetails = () => {
       alert('Unable to update estate. Please try again later.');
       return;
     }
-
+  
     const category = getCategory(estate.type);
-
+  
     try {
+      // Update the estate status first
       const updateUrl = `https://backend-call-center-2.onrender.com/update-isaccepted/${category}/${estateId}`;
       const response = await fetch(updateUrl, {
         method: 'PUT',
@@ -94,11 +95,41 @@ const EstateDetails = () => {
         },
         body: JSON.stringify({ IsAccepted: isAccepted }),
       });
-
+  
       if (!response.ok) {
         throw new Error(`Failed to update estate. Status: ${response.status}`);
       }
-
+  
+      // Determine the SMS endpoint based on the action
+      let smsEndpoint = '';
+      if (isAccepted === "2") {
+        smsEndpoint = 'https://backend-call-center-2.onrender.com/send-sms/accepted';
+        // smsEndpoint = 'http://localhost:10000/send-sms/accepted';
+      } else if (isAccepted === "3") {
+        smsEndpoint = 'https://backend-call-center-2.onrender.com/send-sms/rejected';
+        // smsEndpoint = 'http://localhost:10000/send-sms/rejected';
+      }
+  
+      // Send the SMS if an endpoint has been defined
+      if (smsEndpoint) {
+        const smsResponse = await fetch(smsEndpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          // In this payload the backend will use its default message if message is omitted
+          body: JSON.stringify({
+            to: estate.phone,
+            sender: "DiamondHost" // adjust this value as needed
+          }),
+        });
+  
+        if (!smsResponse.ok) {
+          console.error(`SMS sending failed with status ${smsResponse.status}`);
+          // Optionally alert the user that SMS sending did not complete as expected
+        }
+      }
+  
       setShowConfirmation(false);
       navigate('/new-estate');
     } catch (error) {
@@ -106,6 +137,7 @@ const EstateDetails = () => {
       alert(`Error: ${error.message}`);
     }
   };
+  
 
   const openConfirmationBox = (action) => {
     setActionType(action);
